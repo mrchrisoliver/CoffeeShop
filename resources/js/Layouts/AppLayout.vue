@@ -61,7 +61,7 @@
 								</svg>
 							</div>
 							<div class="text-purple-500 hover:text-purple-600 pr-6 relative">
-								<jet-dropdown align="center">
+								<jet-dropdown>
 									<template #trigger>
 										<span class="inline-flex rounded-md">
 											<button
@@ -76,7 +76,7 @@
 													leading-4
 													font-medium
 													text-purple-500
-													hover:text-gray-700
+													hover:text-purple-700
 													focus:outline-none
 													transition
 												"
@@ -94,8 +94,8 @@
 														items-center
 														justify-center
 														top-0
-														-mt-2
-														right-3
+														-mt-1
+														right-1
 													"
 												>
 													{{ $store.getters.getBasketCount }}
@@ -119,14 +119,65 @@
 									</template>
 
 									<template #content>
-										<div class="p-6">
-											<div
-												v-for="item of $store.getters.getBasket"
-												class="flex items-center py-4 border-b"
-											>
-												<img :src="item.image" class="w-10 h-10 rounded-md" />
-												<div class="pl-2 text-xs">{{ item.title }}</div>
+										<div class="px-6 py-6">
+											<div v-if="$store.getters.getBasket.length > 0">
+												<div
+													v-for="item of $store.getters.getBasket"
+													class="
+														flex
+														items-center
+														pt-6
+														pb-6
+														first:pt-0
+														last:pb-0
+														border-b
+														last:border-none
+													"
+												>
+													<img :src="item.image" class="w-10 h-10 rounded-md" />
+													<div>
+														<div class="pl-2 text-xs font-bold">{{ item.title }}</div>
+														<div class="pl-2 text-xs text-gray-600">{{ item.price }}</div>
+													</div>
+													<div>
+														<div
+															class="
+																w-7
+																h-7
+																flex
+																items-center
+																justify-center
+																text-center text-xs
+																font-bold
+																bg-gray-100
+																text-gray-500
+																rounded-md
+															"
+														>
+															{{ item.quantity }}
+														</div>
+													</div>
+												</div>
 											</div>
+											<div v-else class="py-6">No items</div>
+											<a
+												href="/basket"
+												class="
+													bg-purple-500
+													hover:bg-purple-600
+													text-white
+													font-bold
+													text-sm
+													mt-6
+													py-2
+													px-4
+													rounded-md
+													w-full
+													text-center
+													block
+												"
+												>Checkout</a
+											>
 										</div>
 									</template>
 								</jet-dropdown>

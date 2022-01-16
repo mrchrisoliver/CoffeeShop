@@ -7,7 +7,15 @@ export const basket = {
 			return state.products;
 		},
 		getBasketCount(state) {
-			return state.products.length
+			if(state.products.length < 1) {
+				return 0;
+			}
+			if(state.products.length > 1) {
+				return state.products.reduce(function (a, b) {
+					return a.quantity + b.quantity; // returns object with property x
+				});
+			}
+			return state.products[0].quantity;
 		}
 	},
 	mutations: {
@@ -21,8 +29,18 @@ export const basket = {
 			}
 		},
 		setBasket( state, product ){
-			state.products.push(product);
+			if (state.products.filter(item => item.id === product.id).length > 0) {
+				let item = state.products.find(item => item['id'] === product.id);
+				item.quantity += 1;
+
+			} else {
+				product.quantity = 1;
+				state.products.push(product);
+			}
         },
+		clearBasket(state) {
+			state.products = [];
+		}
     },
 	
 	actions: {
