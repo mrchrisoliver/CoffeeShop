@@ -969,8 +969,14 @@ select {
 .col-span-10 {
   grid-column: span 10 / span 10;
 }
+.col-span-2 {
+  grid-column: span 2 / span 2;
+}
 .col-start-2 {
   grid-column-start: 2;
+}
+.row-span-2 {
+  grid-row: span 2 / span 2;
 }
 .mx-auto {
   margin-left: auto;
@@ -1162,6 +1168,9 @@ select {
 .w-7 {
   width: 1.75rem;
 }
+.w-1\/2 {
+  width: 50%;
+}
 .min-w-0 {
   min-width: 0px;
 }
@@ -1197,6 +1206,9 @@ select {
 }
 .flex-1 {
   flex: 1 1 0%;
+}
+.flex-shrink-0 {
+  flex-shrink: 0;
 }
 .shrink-0 {
   flex-shrink: 0;
@@ -1482,6 +1494,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(209 213 219 / var(--tw-bg-opacity));
 }
+.bg-purple-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(192 132 252 / var(--tw-bg-opacity));
+}
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
 }
@@ -1677,6 +1693,10 @@ select {
   font-size: 1.875rem;
   line-height: 2.25rem;
 }
+.text-4xl {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
 .font-medium {
   font-weight: 500;
 }
@@ -1797,6 +1817,18 @@ select {
 .antialiased {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.placeholder-white::-moz-placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-placeholder-opacity));
+}
+.placeholder-white:-ms-input-placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-placeholder-opacity));
+}
+.placeholder-white::placeholder {
+  --tw-placeholder-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-placeholder-opacity));
 }
 .opacity-0 {
   opacity: 0;

@@ -47,8 +47,8 @@
 			<div class="grid grid-cols-4 gap-4">
 				<div v-for="product of products" class="p-4">
 					<img :src="product.image" class="rounded-md w-full" />
-					<div class="pt-2 font-bold text-gray-600">{{ product.title }}</div>
-					<div class="pb-4 text-gray-500 text-base">£11.99</div>
+					<div class="pt-2 font-bold text-gray-600">{{ product.name }}</div>
+					<div class="pb-4 text-gray-500 text-base">£ {{ product.price }}</div>
 					<Link
 						:href="'/products/' + product.slug"
 						class="
@@ -70,19 +70,29 @@
 			</div>
 		</div>
 		<div class="bg-purple-600 py-20 text-white w-full">
-			<div class="flex justify-center items-center max-w-5xl mx-auto">
-				<div class="">
-					<div class="text-3xl font-bold">Subscribe to our newsletter</div>
+			<div class="flex justify-center flex-col items-center max-w-5xl mx-auto">
+				<div class="text-center pb-4">
+					<div class="text-4xl font-bold">Subscribe to our newsletter</div>
 					<div class="text-sm">Join today for exclusive news and offers</div>
 				</div>
-				<div class="flex items-center ml-4">
+				<div class="flex items-center w-1/2 mx-auto">
 					<input
 						type="text"
 						placeholder="Email address"
-						class="w-3/5 border-transparent rounded-md mr-2 h-10"
+						class="
+							w-full
+							placeholder-white
+							border-transparent
+							bg-purple-500
+							text-white
+							rounded-md
+							mr-2
+							h-10
+						"
 					/>
 					<button
 						class="
+							flex-shrink-0
 							bg-purple-700
 							hover:bg-purple-800
 							h-10

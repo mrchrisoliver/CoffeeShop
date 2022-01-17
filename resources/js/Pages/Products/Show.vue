@@ -3,9 +3,9 @@
 		<div class="max-w-5xl mx-auto grid grid-cols-2 gap-x-12 py-12">
 			<div>
 				<h1 class="text-3xl text-purple-700 uppercase font-bold">
-					{{ product.title }}
+					{{ product.name }}
 				</h1>
-				<div class="text-gray-500 text-xl">£4.55</div>
+				<div class="text-gray-500 text-xl">£ {{ product.price }}</div>
 				<div class="py-6">
 					<p class="py-2 text-gray-500">
 						Honey, she's home! And orange-you glad to see this stunning honey

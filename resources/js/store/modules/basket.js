@@ -16,6 +16,14 @@ export const basket = {
 				});
 			}
 			return state.products[0].quantity;
+		},
+		getBasketTotal(state) {
+			if(state.products.length > 1) {
+				return state.products.reduce(function (a, b) {
+					return a.totalPrice + b.totalPrice; // returns object with property x
+				});
+			}
+			return state.products[0].totalPrice;
 		}
 	},
 	mutations: {
@@ -32,9 +40,10 @@ export const basket = {
 			if (state.products.filter(item => item.id === product.id).length > 0) {
 				let item = state.products.find(item => item['id'] === product.id);
 				item.quantity += 1;
-
+				item.totalPrice = parseFloat(item.totalPrice) + parseFloat(item.price)
 			} else {
 				product.quantity = 1;
+				product.totalPrice = parseFloat(product.price)
 				state.products.push(product);
 			}
         },

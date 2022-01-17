@@ -61,7 +61,7 @@
 								</svg>
 							</div>
 							<div class="text-purple-500 hover:text-purple-600 pr-6 relative">
-								<jet-dropdown>
+								<jet-dropdown class="min-w-5xl">
 									<template #trigger>
 										<span class="inline-flex rounded-md">
 											<button
@@ -124,22 +124,23 @@
 												<div
 													v-for="item of $store.getters.getBasket"
 													class="
-														flex
+														grid grid-cols-3
 														items-center
 														pt-6
 														pb-6
 														first:pt-0
 														last:pb-0
 														border-b
-														last:border-none
 													"
 												>
-													<img :src="item.image" class="w-10 h-10 rounded-md" />
-													<div>
-														<div class="pl-2 text-xs font-bold">{{ item.title }}</div>
-														<div class="pl-2 text-xs text-gray-600">{{ item.price }}</div>
+													<div class="col-span-2 flex items-center">
+														<img :src="item.image" class="w-10 h-10 rounded-md" />
+														<div>
+															<div class="pl-2 text-xs font-bold">{{ item.name }}</div>
+															<div class="pl-2 text-xs text-gray-600">£ {{ item.price }}</div>
+														</div>
 													</div>
-													<div>
+													<div class="ml-4">
 														<div
 															class="
 																w-7
@@ -157,6 +158,12 @@
 															{{ item.quantity }}
 														</div>
 													</div>
+												</div>
+												<div class="text-gray-500 pt-4 text-sm">
+													<span class="font-bold">Total:</span>
+													<span class="font-bold text-purple-500">
+														£{{ $store.getters.getBasketTotal }}</span
+													>
 												</div>
 											</div>
 											<div v-else class="py-6">No items</div>
