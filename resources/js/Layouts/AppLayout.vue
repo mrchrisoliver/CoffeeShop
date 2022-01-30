@@ -45,21 +45,32 @@
 						<!-- Acount -->
 						<div class="flex items-center">
 							<div class="text-purple-500 hover:text-purple-600 pr-6">
-								<svg
-									xmlns="http://www.w3.org/2000/svg"
-									class="h-6 w-6"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-								>
-									<path
-										stroke-linecap="round"
-										stroke-linejoin="round"
-										stroke-width="2"
-										d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-									/>
-								</svg>
+								<jet-dropdown class="min-w-5xl">
+									<template #trigger>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											class="h-6 w-6"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke="currentColor"
+										>
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												stroke-width="2"
+												d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+											/>
+										</svg>
+									</template>
+
+									<template #content>
+										<div class="px-6 py-6">
+											<search />
+										</div>
+									</template>
+								</jet-dropdown>
 							</div>
+
 							<div class="text-purple-500 hover:text-purple-600 pr-6 relative">
 								<jet-dropdown class="min-w-5xl">
 									<template #trigger>
@@ -323,6 +334,7 @@ import JetDropdownLink from "@/Jetstream/DropdownLink.vue";
 import JetNavLink from "@/Jetstream/NavLink.vue";
 import JetResponsiveNavLink from "@/Jetstream/ResponsiveNavLink.vue";
 import { Head, Link } from "@inertiajs/inertia-vue3";
+import Search from "../Components/Search.vue";
 
 export default defineComponent({
 	props: {
@@ -338,6 +350,7 @@ export default defineComponent({
 		JetNavLink,
 		JetResponsiveNavLink,
 		Link,
+		Search,
 	},
 
 	data() {
