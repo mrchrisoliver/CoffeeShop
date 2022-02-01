@@ -25,7 +25,9 @@
 	@inertia
 
 	@env ('local')
-	<script src="http://localhost:3000/browser-sync/browser-sync-client.js"></script>
+	<script src="http://localhost:3000/browser-sync/browser-sync-client.js"></script>=
+	@endenv
+	@env('production')
 	<!-- Fathom - beautiful, simple website analytics -->
 	<script src="https://cdn.usefathom.com/script.js" data-spa="auto" data-site="ABBLHAHM" defer></script>
 	<!-- / Fathom -->
