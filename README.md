@@ -24,6 +24,7 @@ If you have any experience with the above, please feel free to reach out on [Twi
 
 If you would like to support me to help keep servers ticking you can:
 - [Support me via Ko-fi](https://ko-fi.com/mrchrxs) 
+- [Sign up to Fathom Analytics - $10 off 1st invoice](https://usefathom.com/ref/NKMAVS) 
 - [Sign up to DigitalOcean - Free $100 Credit](https://m.do.co/c/bfb3429a7026)
 - [Buy GirlsWhoGrindCoffee - £5 off](http://i.refs.cc/ifySYL5n?smile_ref=eyJzbWlsZV9zb3VyY2UiOiJzbWlsZV91aSIsInNtaWxlX21lZGl1bSI6IiIsInNtaWxlX2NhbXBhaWduIjoicmVmZXJyYWxfcHJvZ3JhbSIsInNtaWxlX2N1c3RvbWVyX2lkIjoxMTIwNzg4NDIxfQ%3D%3D)
 

@@ -26,6 +26,9 @@
 
 	@env ('local')
 	<script src="http://localhost:3000/browser-sync/browser-sync-client.js"></script>
+	<!-- Fathom - beautiful, simple website analytics -->
+	<script src="https://cdn.usefathom.com/script.js" data-spa="auto" data-site="ABBLHAHM" defer></script>
+	<!-- / Fathom -->
 	@endenv
 </body>
 
