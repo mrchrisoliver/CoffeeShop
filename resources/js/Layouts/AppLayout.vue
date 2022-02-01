@@ -2,8 +2,11 @@
 	<div>
 		<Head :title="title" />
 		<div class="w-full bg-gray-200 text-gray-700 text-center py-4">
-			This is a demo project, check out what I am doing on
-			<a class="underline" href="https://github.com/mrchrisoliver/CoffeeShop"
+			This is a demo project, check it out on
+			<a
+				class="underline"
+				target="_blank"
+				href="https://github.com/mrchrisoliver/CoffeeShop"
 				>Github</a
 			>
 		</div>
