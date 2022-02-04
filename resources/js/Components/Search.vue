@@ -59,10 +59,10 @@
 						<div v-if="key == 'products'">
 							<div class="font-bold text-base pb-2">Products</div>
 							<div v-for="(event, key) in value" :key="key" class="py-1">
-								<a
-									:href="'/events/' + event?.name + '?event=' + event.name"
-									class="text-sm hover:font-bold"
-									>{{ event?.name }}</a
+								<Link
+									:href="'/products/' + event.slug"
+									class="text-sm text-red-500 hover:font-bold"
+									>{{ event?.name }}</Link
 								>
 							</div>
 						</div>
@@ -79,8 +79,9 @@
 <script>
 import axios from "axios";
 // import Icon from "@/Shared/Icon";
+import { Link } from "@inertiajs/inertia-vue3";
 export default {
-	// components: { Icon },
+	components: { Link },
 	data() {
 		return {
 			search: {
@@ -98,6 +99,7 @@ export default {
 		},
 		searchButtonAction() {
 			if (this.showSearch) {
+				console.log("hdds");
 				this.performSearch();
 			} else {
 				this.showSearch = true;
