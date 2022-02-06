@@ -4,7 +4,7 @@
 			class="
 				max-w-5xl
 				mx-auto
-				grid grid-cols-1 grid-row-r
+				grid grid-cols-1
 				md:grid-cols-2
 				gap-x-12
 				py-12

@@ -35,7 +35,10 @@
 								</jet-nav-link>
 							</div>
 							<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-								<jet-nav-link :href="route('home')" :active="route().current('home')">
+								<jet-nav-link
+									:href="route('products.index')"
+									:active="route().current('products.index')"
+								>
 									Coffee
 								</jet-nav-link>
 							</div>

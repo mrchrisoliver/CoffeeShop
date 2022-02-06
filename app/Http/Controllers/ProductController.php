@@ -15,7 +15,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+		return Inertia::render('Products/Index', [
+			'products' => Product::limit(10)->get()
+		]);
     }
 
     /**
