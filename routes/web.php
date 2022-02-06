@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use App\Models\Product;
+use App\Models\Variation;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -18,8 +19,9 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
+	// return Variation::inRandomOrder()->limit(1)->pluck('id')->first();
 	return Inertia::render('Home/Index', [
-		'products' => Product::latest()->limit(4)->get()
+		'products' => Product::with('weightVariations')->latest()->limit(4)->get()
 	]);
 })->name('home');
 

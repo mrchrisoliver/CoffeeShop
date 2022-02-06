@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Product;
+use App\Models\Variation;
 use Illuminate\Http\Request;
-use Inertia\Inertia;
 
-class ProductController extends Controller
+class VariationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,23 +41,21 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Variation  $variation
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Variation $variation)
     {
-        return Inertia::render('Products/Show', [
-			'product' => $product->load(['weightVariations', 'brewVariations'])
-		]);
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Variation  $variation
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit(Variation $variation)
     {
         //
     }
@@ -67,10 +64,10 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Variation  $variation
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, Variation $variation)
     {
         //
     }
@@ -78,10 +75,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
+     * @param  \App\Models\Variation  $variation
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Product $product)
+    public function destroy(Variation $variation)
     {
         //
     }

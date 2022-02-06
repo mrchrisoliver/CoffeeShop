@@ -2,6 +2,7 @@ require('./bootstrap');
 
 import { createApp, h, setup } from 'vue';
 import { createInertiaApp } from '@inertiajs/inertia-vue3';
+import { Inertia } from '@inertiajs/inertia'
 import { InertiaProgress } from '@inertiajs/progress';
 import { store } from '@/store/store.js';
 
@@ -26,3 +27,6 @@ createInertiaApp({
 });
 
 InertiaProgress.init({ color: '#4B5563' });
+Inertia.on('navigate', (event) => {
+	window.fathom.trackPageview();
+  })

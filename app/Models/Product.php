@@ -17,4 +17,21 @@ class Product extends Model
 	{
 		return 'slug';
 	}
+
+	public function toSearchableArray()
+	{
+		$array = $this->only('title');
+
+		return $array;
+	}
+
+	public function variations() {
+		return $this->hasMany(Variation::class);
+	}
+	public function weightVariations() {
+		return $this->hasMany(Variation::class)->where('type_id', 1);
+	}
+	public function brewVariations() {
+		return $this->hasMany(Variation::class)->where('type_id', 2);
+	}
 }
