@@ -21,8 +21,7 @@ class ProductSeeder extends Seeder
 
 		$variations = Variation::factory()->count(3)->state(new Sequence(
 			['name' => '350g', 'type_id' => 1],
-			['name' => '1kg', 'type_id' => 1]
-		))->state(new Sequence(
+			['name' => '1kg', 'type_id' => 1],
 			['name' => 'Wholebean', 'type_id' => 2],
 			['name' => 'Espresso', 'type_id' => 2],
 			['name' => 'French Press', 'type_id' => 2],
