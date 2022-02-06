@@ -1,7 +1,18 @@
 <template>
 	<app-layout>
-		<div class="max-w-5xl mx-auto grid grid-cols-2 gap-x-12 py-12">
-			<div>
+		<div
+			class="
+				max-w-5xl
+				mx-auto
+				grid grid-cols-1 grid-row-r
+				md:grid-cols-2
+				gap-x-12
+				py-12
+				px-12
+				mx:px-0
+			"
+		>
+			<div class="order-2 md:order-1">
 				<h1 class="text-3xl text-purple-700 uppercase font-bold">
 					{{ product.name }}
 				</h1>
@@ -64,8 +75,10 @@
 
 				{{ getBasket }}
 			</div>
-			<div>
-				<div class="rounded-md overflow-hidden"><img :src="product.image" /></div>
+			<div class="order-1 md:order-2 pb-6 md:p-0">
+				<div class="rounded-md overflow-hidden">
+					<img :src="product.image" />
+				</div>
 			</div>
 		</div>
 	</app-layout>

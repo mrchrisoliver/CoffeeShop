@@ -16,24 +16,32 @@
 			<nav class="py-12">
 				<!-- Primary Navigation Menu -->
 				<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-					<div class="w-full grid grid-cols-12 gap-4">
-						<div class="col-span-10 col-start-2 grid grid-cols-5 gap-4 mx-auto">
+					<div class="w-full grid grid-cols-2 md:grid-cols-12 gap-4">
+						<div
+							class="
+								col-span-0
+								md:col-span-10
+								col-start-1
+								md:col-start-2
+								grid grid-col-2
+								md:grid-cols-5
+								gap-4
+								mx-auto
+							"
+						>
 							<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
 								<jet-nav-link :href="route('home')" :active="route().current('home')">
 									Home
 								</jet-nav-link>
 							</div>
 							<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-								<jet-nav-link
-									:href="route('dashboard')"
-									:active="route().current('dashboard')"
-								>
+								<jet-nav-link :href="route('home')" :active="route().current('home')">
 									Coffee
 								</jet-nav-link>
 							</div>
 							<!-- Logo -->
 							<div class="flex justify-center items-center">
-								<Link :href="route('dashboard')">
+								<Link :href="route('home')">
 									<jet-application-mark class="block h-20 w-auto" />
 								</Link>
 							</div>
@@ -210,8 +218,8 @@
 							</div>
 							<div>
 								<jet-nav-link
-									:href="route('dashboard')"
-									:active="route().current('dashboard')"
+									:href="route('home')"
+									:active="route().current('home')"
 									class="text-purple-500 hover:text-purple-600"
 									><svg
 										xmlns="http://www.w3.org/2000/svg"
@@ -288,8 +296,8 @@
 				>
 					<div class="pt-2 pb-3 space-y-1">
 						<jet-responsive-nav-link
-							:href="route('dashboard')"
-							:active="route().current('dashboard')"
+							:href="route('home')"
+							:active="route().current('home')"
 						>
 							Dashboard
 						</jet-responsive-nav-link>

@@ -1,12 +1,13 @@
 <template>
 	<app-layout>
-		<div class="px-12">
+		<div class="p-0 md:px-12">
 			<div
 				class="
 					w-full
-					rounded-md
+					md:rounded-md
 					overflow-hidden
-					h-96
+					h-72
+					md:h-96
 					relative
 					flex
 					justify-center
@@ -16,9 +17,9 @@
 			>
 				<img
 					src="/images/banners/banner.jpg"
-					class="object-none object-center absolute"
+					class="object-fill md:object-none object-center absolute"
 				/>
-				<div class="text-6xl text-white relative uppercase">
+				<div class="text-4xl md:text-6xl text-white relative uppercase">
 					Brew it
 					<span class="bg-white bg-opacity-60 text-purple-700 rounded-md py-2 px-4"
 						>your Way</span
@@ -44,7 +45,7 @@
 			>
 				New Arrivals
 			</h2>
-			<div class="grid grid-cols-4 gap-4">
+			<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
 				<div v-for="product of products" class="p-4">
 					<img :src="product.image" class="rounded-md w-full" />
 					<div class="pt-2 font-bold text-gray-600">{{ product.name }}</div>
@@ -69,13 +70,25 @@
 				</div>
 			</div>
 		</div>
-		<div class="bg-purple-600 py-20 text-white w-full">
-			<div class="flex justify-center flex-col items-center max-w-5xl mx-auto">
+		<div class="bg-purple-600 py-20 text-white w-full px-6 md:px-0">
+			<div
+				class="
+					flex
+					justify-center
+					flex-col
+					items-center
+					w-full
+					md:max-w-5xl
+					mx-auto
+				"
+			>
 				<div class="text-center pb-4">
-					<div class="text-4xl font-bold">Subscribe to our newsletter</div>
+					<div class="text-3xl md:text-4xl font-bold">
+						Subscribe to our newsletter
+					</div>
 					<div class="text-sm">Join today for exclusive news and offers</div>
 				</div>
-				<div class="flex items-center w-1/2 mx-auto">
+				<div class="flex items-center w-full md:w-1/2 mx-auto">
 					<input
 						type="text"
 						placeholder="Email address"
@@ -103,7 +116,6 @@
 					>
 						Sign up
 					</button>
-					{{ getActiveSong }}
 				</div>
 			</div>
 		</div>
