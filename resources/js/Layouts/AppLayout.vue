@@ -51,14 +51,15 @@
 
 							<!-- Navigation Links -->
 							<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-								<jet-nav-link
-									:href="route('dashboard')"
-									:active="route().current('dashboard')"
-								>
+								<jet-nav-link :href="route('home')" :active="route().current('home')">
 									Brew Guides
 								</jet-nav-link>
 							</div>
-							<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex"></div>
+							<div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+								<jet-nav-link :href="route('home')" :active="route().current('home')">
+									About us
+								</jet-nav-link>
+							</div>
 						</div>
 
 						<!-- Acount -->

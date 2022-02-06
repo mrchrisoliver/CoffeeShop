@@ -1,12 +1,12 @@
 <template>
 	<div class="relative">
 		<div>
-			<div class="border border-gray-300 rounded-full flex">
+			<div class="border border-gray-300 rounded-md flex items-center">
 				<input
 					type="text"
 					name="first-name"
 					id="first-name"
-					autocomplete="given-name"
+					autocomplete="off"
 					v-if="showSearch"
 					class="
 						form-control
@@ -45,31 +45,27 @@
 			</div>
 		</div>
 		<!-- <div class="fixed inset-0 z-40"></div> -->
-		<div
-			v-if="search.string?.length"
-			class="z-50 mt-2 origin-top-left left-0 w-full min-w-max"
-		>
-			<div class="rounded-md p-6">
-				<div v-if="results">
+		<div v-if="search.string?.length">
+			<div class="rounded-md p-4">
+				<div v-if="results.products.length">
 					<div
 						v-for="(value, key, index) in results"
 						:key="`${key}-${index}`"
 						class="py-1"
 					>
-						<div v-if="key == 'products'">
-							<div class="font-bold text-base pb-2">Products</div>
-							<div v-for="(event, key) in value" :key="key" class="py-1">
-								<Link
-									:href="'/products/' + event.slug"
-									class="text-sm text-red-500 hover:font-bold"
-									>{{ event?.name }}</Link
-								>
-							</div>
+						<div v-for="(event, key) in value" :key="key" class="py-1">
+							<Link
+								:href="'/products/' + event.slug"
+								class="text-sm text-gray-700 hover:font-bold"
+								>{{ event?.name }}</Link
+							>
 						</div>
 					</div>
 				</div>
 				<div v-else>
-					<div class="text-center text-sm">Sorry no results</div>
+					<div class="text-center font-bold text-purple-500 pt-6 text-sm">
+						Sorry no results
+					</div>
 				</div>
 			</div>
 		</div>
@@ -87,19 +83,21 @@ export default {
 			search: {
 				string: null,
 			},
-			results: [],
+			results: {
+				products: [],
+			},
 			showSearch: true,
 		};
 	},
 	methods: {
 		performSearch() {
 			axios.post("/api/search/all", this.search).then((res) => {
+				console.log(res);
 				this.results = res.data;
 			});
 		},
 		searchButtonAction() {
 			if (this.showSearch) {
-				console.log("hdds");
 				this.performSearch();
 			} else {
 				this.showSearch = true;

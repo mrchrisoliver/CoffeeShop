@@ -72,8 +72,6 @@
 				>
 					Add to basket
 				</button>
-
-				{{ getBasket }}
 			</div>
 			<div class="order-1 md:order-2 pb-6 md:p-0">
 				<div class="rounded-md overflow-hidden">
