@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<Head :title="title" />
+		<Head :title="'Home'" />
 		<div class="w-full bg-gray-200 text-gray-700 text-center py-4">
 			This is a demo project, check it out on
 			<a

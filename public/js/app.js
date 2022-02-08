@@ -21058,21 +21058,49 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Layouts/AppLayout.vue */ "./resources/js/Layouts/AppLayout.vue");
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
     AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: ["product"],
+  data: function data() {
+    return {
+      selectedWeight: this.product.weight_variations[0],
+      selectedBrew: this.product.brew_variations[0].name,
+      price: this.product.weight_variations[0].price
+    };
+  },
   computed: {
-    // ...mapGetters(["getActiveSong"]),
     getBasket: function getBasket() {
       return this.$store.getters.getBasketCount;
+    },
+    getStartingPrice: function getStartingPrice() {
+      var arrayMerge = [].concat(_toConsumableArray(this.product.weight_variations), _toConsumableArray(this.product.brew_variations));
+      var prices = arrayMerge.map(function (officer) {
+        return officer.price;
+      });
+      var startPrice = prices.reduce(function (acc, val) {
+        acc[0] = acc[0] === undefined || val < acc[0] ? val : acc[0];
+        return acc;
+      }, [])[0];
+      return startPrice;
     }
   },
   methods: {
     addToBasket: function addToBasket() {
-      // alert("Hello");
       this.$store.dispatch("addToBasket", this.product);
     }
   }
@@ -23292,10 +23320,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_jet_responsive_nav_link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("jet-responsive-nav-link");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
-    title: _ctx.title
-  }, null, 8
-  /* PROPS */
-  , ["title"]), _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_banner), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Primary Navigation Menu "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_nav_link, {
+    title: 'Home'
+  }), _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_banner), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("nav", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Primary Navigation Menu "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_nav_link, {
     href: _ctx.route('home'),
     active: _ctx.route().current('home')
   }, {
@@ -25151,9 +25177,7 @@ var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 var _hoisted_8 = {
   "class": "grid grid-cols-3 gap-4"
 };
-var _hoisted_9 = {
-  "class": "font-bold text-sm py-2 px-4 text-center text-purple-500 border-2 border-purple-500 hover:bg-purple-500 hover:text-white"
-};
+var _hoisted_9 = ["onClick"];
 var _hoisted_10 = {
   "class": "pt-4"
 };
@@ -25167,9 +25191,7 @@ var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElement
 var _hoisted_12 = {
   "class": "grid grid-cols-3 gap-4"
 };
-var _hoisted_13 = {
-  "class": "font-bold text-sm py-2 px-4 text-center text-purple-500 border-2 border-purple-500 hover:bg-purple-500 hover:text-white"
-};
+var _hoisted_13 = ["onClick"];
 var _hoisted_14 = {
   "class": "order-1 md:order-2 pb-6 md:p-0"
 };
@@ -25184,20 +25206,30 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", _hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.product.name), 1
       /* TEXT */
-      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, "£ " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.product.price), 1
+      ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, "£ " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($data.selectedWeight.price), 1
       /* TEXT */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.product.description), 1
       /* TEXT */
       ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.product.weight_variations, function (weight) {
-        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(weight.name), 1
-        /* TEXT */
-        );
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+          "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["font-bold text-sm py-2 px-4 border-2 border-purple-500 text-center cursor-pointer", $data.selectedWeight.name == weight.name ? 'bg-purple-500 text-white' : 'text-purple-500 hover:bg-purple-500 hover:text-white']),
+          onClick: function onClick($event) {
+            return $data.selectedWeight = weight;
+          }
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(weight.name), 11
+        /* TEXT, CLASS, PROPS */
+        , _hoisted_9);
       }), 256
       /* UNKEYED_FRAGMENT */
       ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.product.brew_variations, function (brew) {
-        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(brew.name), 1
-        /* TEXT */
-        );
+        return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", {
+          "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["font-bold text-sm py-2 px-4 border-2 border-purple-500 text-center hover:cursor-pointer", $data.selectedBrew == brew.name ? 'bg-purple-500 text-white' : 'text-purple-500 hover:bg-purple-500 hover:text-white']),
+          onClick: function onClick($event) {
+            return $data.selectedBrew = brew.name;
+          }
+        }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(brew.name), 11
+        /* TEXT, CLASS, PROPS */
+        , _hoisted_13);
       }), 256
       /* UNKEYED_FRAGMENT */
       ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
@@ -26557,10 +26589,17 @@ var basket = {
   },
   mutations: {
     initialiseStore: function initialiseStore(state) {
-      // Check if the ID exists
+      var now = new Date();
+      var time = now.getTime();
+
       if (localStorage.getItem('store')) {
-        // Replace the state object with the stored item
-        this.replaceState(Object.assign(state, JSON.parse(localStorage.getItem('store'))));
+        var storedState = JSON.parse(localStorage.getItem('store'));
+
+        if (time >= storedState.expiry) {
+          localStorage.removeItem('store');
+        } else {
+          this.replaceState(Object.assign(state, storedState.state));
+        }
       }
     },
     setBasket: function setBasket(state, product) {
@@ -26614,8 +26653,18 @@ var store = (0,vuex__WEBPACK_IMPORTED_MODULE_1__.createStore)({
   }
 });
 store.subscribe(function (mutation, state) {
-  // Store the state object as a JSON string
-  localStorage.setItem('store', JSON.stringify(state));
+  var now = new Date();
+  var time = now.getTime() + 86400000;
+  var currentStorage = JSON.parse(localStorage.getItem('store'));
+  var expiry = currentStorage !== null && currentStorage !== void 0 && currentStorage.expiry ? currentStorage.expiry : time;
+  var item = {
+    state: state,
+    expiry: expiry
+  };
+
+  if (state.basket.products.length) {
+    localStorage.setItem('store', JSON.stringify(item));
+  }
 });
 
 /***/ }),

@@ -16,7 +16,7 @@
 				<h1 class="text-3xl text-purple-700 uppercase font-bold">
 					{{ product.name }}
 				</h1>
-				<div class="text-gray-500 text-xl">£ {{ product.price }}</div>
+				<div class="text-gray-500 text-xl">£ {{ selectedWeight.price }}</div>
 				<div class="py-6">
 					{{ product.description }}
 				</div>
@@ -30,10 +30,16 @@
 								text-sm
 								py-2
 								px-4
-								text-center text-purple-500
 								border-2 border-purple-500
-								hover:bg-purple-500 hover:text-white
+								text-center
+								cursor-pointer
 							"
+							:class="
+								selectedWeight.name == weight.name
+									? 'bg-purple-500 text-white'
+									: 'text-purple-500 hover:bg-purple-500 hover:text-white'
+							"
+							@click="selectedWeight = weight"
 						>
 							{{ weight.name }}
 						</div>
@@ -49,10 +55,16 @@
 								text-sm
 								py-2
 								px-4
-								text-center text-purple-500
 								border-2 border-purple-500
-								hover:bg-purple-500 hover:text-white
+								text-center
+								hover:cursor-pointer
 							"
+							:class="
+								selectedBrew == brew.name
+									? 'bg-purple-500 text-white'
+									: 'text-purple-500 hover:bg-purple-500 hover:text-white'
+							"
+							@click="selectedBrew = brew.name"
 						>
 							{{ brew.name }}
 						</div>
@@ -89,15 +101,33 @@ export default {
 		AppLayout,
 	},
 	props: ["product"],
+	data() {
+		return {
+			selectedWeight: this.product.weight_variations[0],
+			selectedBrew: this.product.brew_variations[0].name,
+			price: this.product.weight_variations[0].price,
+		};
+	},
 	computed: {
-		// ...mapGetters(["getActiveSong"]),
 		getBasket() {
 			return this.$store.getters.getBasketCount;
+		},
+		getStartingPrice() {
+			let arrayMerge = [
+				...this.product.weight_variations,
+				...this.product.brew_variations,
+			];
+			let prices = arrayMerge.map((officer) => officer.price);
+
+			let startPrice = prices.reduce((acc, val) => {
+				acc[0] = acc[0] === undefined || val < acc[0] ? val : acc[0];
+				return acc;
+			}, [])[0];
+			return startPrice;
 		},
 	},
 	methods: {
 		addToBasket() {
-			// alert("Hello");
 			this.$store.dispatch("addToBasket", this.product);
 		},
 	},

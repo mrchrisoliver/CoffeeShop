@@ -28,13 +28,20 @@ export const basket = {
 	},
 	mutations: {
 		initialiseStore(state) {
-			// Check if the ID exists
+			const now = new Date()
+			const time = now.getTime()
+
 			if(localStorage.getItem('store')) {
-				// Replace the state object with the stored item
-				this.replaceState(
-					Object.assign(state, JSON.parse(localStorage.getItem('store')))
-				);
+				let storedState = JSON.parse(localStorage.getItem('store'));
+				if(time >= storedState.expiry) {
+					localStorage.removeItem('store');
+				} else {
+					this.replaceState(
+						Object.assign(state, storedState.state)
+					);
+				}
 			}
+			
 		},
 		setBasket( state, product ){
 			if (state.products.filter(item => item.id === product.id).length > 0) {

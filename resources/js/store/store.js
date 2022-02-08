@@ -8,6 +8,16 @@ export const store = createStore({
   });
 
   store.subscribe((mutation, state) => {
-	// Store the state object as a JSON string
-	localStorage.setItem('store', JSON.stringify(state));
+	  const now = new Date()
+	  const time = now.getTime() + 86400000
+	  let currentStorage = JSON.parse(localStorage.getItem('store'));
+	  let expiry = currentStorage?.expiry ? currentStorage.expiry : time;
+	  
+	  const item = {
+		state: state,
+		expiry: expiry,
+	}
+	if(state.basket.products.length) {
+		localStorage.setItem('store', JSON.stringify(item));
+	}
 });
