@@ -70,55 +70,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="bg-purple-600 py-20 text-white w-full px-6 md:px-0">
-			<div
-				class="
-					flex
-					justify-center
-					flex-col
-					items-center
-					w-full
-					md:max-w-5xl
-					mx-auto
-				"
-			>
-				<div class="text-center pb-4">
-					<div class="text-3xl md:text-4xl font-bold">
-						Subscribe to our newsletter
-					</div>
-					<div class="text-sm">Join today for exclusive news and offers</div>
-				</div>
-				<div class="flex items-center w-full md:w-1/2 mx-auto">
-					<input
-						type="text"
-						placeholder="Email address"
-						class="
-							w-full
-							placeholder-white
-							border-transparent
-							bg-purple-500
-							text-white
-							rounded-md
-							mr-2
-							h-10
-						"
-					/>
-					<button
-						class="
-							flex-shrink-0
-							bg-purple-700
-							hover:bg-purple-800
-							h-10
-							px-4
-							rounded-md
-							text-white text-sm
-						"
-					>
-						Sign up
-					</button>
-				</div>
-			</div>
-		</div>
+		<newsletter />
 	</app-layout>
 </template>
 
@@ -126,20 +78,15 @@
 import AppLayout from "../../Layouts/AppLayout.vue";
 import { Link } from "@inertiajs/inertia-vue3";
 import Button from "../../Jetstream/Button.vue";
-
+import Newsletter from "@/Pages/Home/Newsletter";
 export default {
 	components: {
 		AppLayout,
 		Link,
 		Button,
+		Newsletter,
 	},
 	props: ["products"],
-	computed: {
-		// ...mapGetters(["getActiveSong"]),
-		getActiveSong() {
-			return this.$store.getters.getActiveIndex;
-		},
-	},
 };
 </script>
 

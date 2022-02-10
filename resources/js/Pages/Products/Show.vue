@@ -128,7 +128,13 @@ export default {
 	},
 	methods: {
 		addToBasket() {
-			this.$store.dispatch("addToBasket", this.product);
+			let productForBasket = { ...this.product };
+			delete productForBasket.weight_variations;
+			delete productForBasket.brew_variations;
+			productForBasket.weight = this.selectedWeight.name;
+			productForBasket.brew = this.selectedBrew;
+			console.log(productForBasket);
+			// this.$store.dispatch("addToBasket", this.product);
 		},
 	},
 };
