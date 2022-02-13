@@ -1,7 +1,17 @@
 <template>
 	<div class="bg-purple-600 py-12 text-white w-full px-6 md:px-0">
-		<div class="flex justify-center items-center w-full md:max-w-5xl mx-auto">
-			<div class="flex justify-center flex-col items-center">
+		<div
+			class="
+				flex flex-col-reverse
+				md:flex-row
+				justify-center
+				items-center
+				w-full
+				md:max-w-5xl
+				mx-auto
+			"
+		>
+			<div v-if="!success" class="flex justify-center flex-col items-center">
 				<div class="text-center pb-4">
 					<div class="text-3xl md:text-4xl font-bold">
 						Subscribe to our newsletter
@@ -29,11 +39,14 @@
 							bg-purple-500
 							text-white
 							rounded-md
+							focus:bg-purple-500
 							mr-2
 							h-10
 						"
 					/>
 					<button
+						id="signup"
+						name="signup"
 						class="
 							flex-shrink-0
 							bg-purple-700
@@ -48,7 +61,16 @@
 					</button>
 				</form>
 			</div>
-			<div class="w-72 pl-6">
+			<div v-if="success">
+				<div class="text-center pb-4">
+					<div class="text-3xl md:text-4xl font-bold">Thank you!</div>
+					<div class="text-sm">You have successful joined our newsletter.</div>
+					<div class="text-sm">
+						We promise not to spam you, and you can opt-out anytime.
+					</div>
+				</div>
+			</div>
+			<div class="block md:block w-52 md:w-72 pb-6 md:pb-0 md:pl-6">
 				<svg
 					viewBox="0 0 597 534"
 					version="1.1"
@@ -333,11 +355,15 @@ export default {
 			newsletter: {
 				email: "",
 			},
+			success: false,
 		};
 	},
 	methods: {
 		submitNewsletter() {
-			axios.post("/newsletter", this.newsletter);
+			axios.post("/newsletter", this.newsletter).then((res) => {
+				this.success = true;
+				this.newsletter.email = "";
+			});
 		},
 	},
 };

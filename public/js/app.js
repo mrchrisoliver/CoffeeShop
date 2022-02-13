@@ -21004,12 +21004,18 @@ __webpack_require__.r(__webpack_exports__);
     return {
       newsletter: {
         email: ""
-      }
+      },
+      success: false
     };
   },
   methods: {
     submitNewsletter: function submitNewsletter() {
-      axios.post("/newsletter", this.newsletter);
+      var _this = this;
+
+      axios.post("/newsletter", this.newsletter).then(function (res) {
+        _this.success = true;
+        _this.newsletter.email = "";
+      });
     }
   }
 });
@@ -25049,9 +25055,10 @@ var _hoisted_1 = {
   "class": "bg-purple-600 py-12 text-white w-full px-6 md:px-0"
 };
 var _hoisted_2 = {
-  "class": "flex justify-center items-center w-full md:max-w-5xl mx-auto"
+  "class": "flex flex-col-reverse md:flex-row justify-center items-center w-full md:max-w-5xl mx-auto"
 };
 var _hoisted_3 = {
+  key: 0,
   "class": "flex justify-center flex-col items-center"
 };
 
@@ -25066,13 +25073,33 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  id: "signup",
+  name: "signup",
   "class": "flex-shrink-0 bg-purple-700 hover:bg-purple-800 h-10 px-4 rounded-md text-white text-sm"
 }, " Sign up ", -1
 /* HOISTED */
 );
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "w-72 pl-6"
+var _hoisted_6 = {
+  key: 1
+};
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "text-center pb-4"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "text-3xl md:text-4xl font-bold"
+}, "Thank you!"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "text-sm"
+}, "You have successful joined our newsletter."), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "text-sm"
+}, " We promise not to spam you, and you can opt-out anytime. ")], -1
+/* HOISTED */
+);
+
+var _hoisted_8 = [_hoisted_7];
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "block md:block w-52 md:w-72 pb-6 md:pb-0 md:pl-6"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   viewBox: "0 0 597 534",
   version: "1.1",
@@ -25313,7 +25340,7 @@ var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [!$data.success ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("form", {
     action: "/newsletter",
     method: "post",
     onSubmit: _cache[1] || (_cache[1] = function () {
@@ -25330,12 +25357,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     placeholder: "Email address",
     autocomplete: "email",
     required: "",
-    "class": "w-full placeholder-white border-transparent bg-purple-500 text-white rounded-md mr-2 h-10"
+    "class": "w-full placeholder-white border-transparent bg-purple-500 text-white rounded-md focus:bg-purple-500 mr-2 h-10"
   }, null, 512
   /* NEED_PATCH */
   ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.newsletter.email]]), _hoisted_5], 32
   /* HYDRATE_EVENTS */
-  )]), _hoisted_6])]);
+  )])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.success ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_6, _hoisted_8)) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), _hoisted_9])]);
 }
 
 /***/ }),
