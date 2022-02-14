@@ -133,8 +133,9 @@ export default {
 			delete productForBasket.brew_variations;
 			productForBasket.weight = this.selectedWeight.name;
 			productForBasket.brew = this.selectedBrew;
-			console.log(productForBasket);
-			// this.$store.dispatch("addToBasket", this.product);
+			productForBasket.price = this.selectedWeight.price;
+			// console.log(productForBasket);
+			this.$store.dispatch("addToBasket", productForBasket);
 		},
 	},
 };

@@ -9,7 +9,7 @@
 				<div class="pl-4">
 					<div class="font-bold">{{ product.name }}</div>
 					<div class="text-xs text-gray-500">{{ product.description }}</div>
-					<div class="">£ {{ product.price }}</div>
+					<div class="">£ {{ getStartingPrice(product) }}</div>
 					<Link
 						:href="'/products/' + product.slug"
 						class="
@@ -42,6 +42,20 @@ export default {
 	components: { Link, Pagination },
 	props: ["products"],
 	layout: AppLayout,
+	methods: {
+		getStartingPrice(product) {
+			console.log(product);
+			// return 0;
+			let arrayMerge = [...product.weight_variations];
+			let prices = arrayMerge.map((officer) => officer.price);
+
+			let startPrice = prices.reduce((acc, val) => {
+				acc[0] = acc[0] === undefined || val < acc[0] ? val : acc[0];
+				return acc;
+			}, [])[0];
+			return startPrice;
+		},
+	},
 };
 </script>
 

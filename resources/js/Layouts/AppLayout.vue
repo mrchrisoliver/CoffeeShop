@@ -154,39 +154,44 @@
 											<div v-if="$store.getters.getBasket.length > 0">
 												<div
 													v-for="item of $store.getters.getBasket"
-													class="
-														grid grid-cols-3
-														items-center
-														pt-6
-														pb-6
-														first:pt-0
-														last:pb-0
-														border-b
-													"
+													class="pt-6 pb-6 first:pt-0 last:pb-0 border-b"
 												>
-													<div class="col-span-2 flex items-center">
-														<img :src="item.image" class="w-10 h-10 rounded-md" />
+													<div class="flex">
 														<div>
-															<div class="pl-2 text-xs font-bold">{{ item.name }}</div>
-															<div class="pl-2 text-xs text-gray-600">£ {{ item.price }}</div>
+															<img :src="item.image" class="w-10 h-10 rounded-md" />
 														</div>
-													</div>
-													<div class="ml-4">
-														<div
-															class="
-																w-7
-																h-7
-																flex
-																items-center
-																justify-center
-																text-center text-xs
-																font-bold
-																bg-gray-100
-																text-gray-500
-																rounded-md
-															"
-														>
-															{{ item.quantity }}
+														<div class="ml-4">
+															<div class="flex">
+																<div class="mr-4">
+																	<div class="text-xs font-bold">{{ item.name }}</div>
+																	<div class="text-xs text-gray-600">
+																		£ {{ item.totalPrice }}
+																	</div>
+																</div>
+																<div
+																	class="
+																		w-7
+																		h-7
+																		flex
+																		items-center
+																		justify-center
+																		text-center text-xs
+																		font-bold
+																		bg-gray-100
+																		text-gray-500
+																		rounded-md
+																	"
+																>
+																	{{ item.quantity }}
+																</div>
+															</div>
+															<div class="pt-2">
+																<div v-for="variation of item.variations">
+																	<div class="text-xs text-gray-600">
+																		{{ variation.brew + " - " + variation.weight }}
+																	</div>
+																</div>
+															</div>
 														</div>
 													</div>
 												</div>

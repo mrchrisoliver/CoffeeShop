@@ -49,7 +49,9 @@
 				<div v-for="product of products" class="p-4">
 					<img :src="product.image" class="rounded-md w-full" />
 					<div class="pt-2 font-bold text-gray-600">{{ product.name }}</div>
-					<div class="pb-4 text-gray-500 text-base">£ {{ product.price }}</div>
+					<div class="pb-4 text-gray-500 text-base">
+						£ {{ getStartingPrice(product) }}
+					</div>
 					<Link
 						:href="'/products/' + product.slug"
 						class="
@@ -87,6 +89,20 @@ export default {
 		Newsletter,
 	},
 	props: ["products"],
+	methods: {
+		getStartingPrice(product) {
+			// console.log(product);
+			// return 0;
+			let arrayMerge = [...product.weight_variations];
+			let prices = arrayMerge.map((officer) => officer.price);
+
+			let startPrice = prices.reduce((acc, val) => {
+				acc[0] = acc[0] === undefined || val < acc[0] ? val : acc[0];
+				return acc;
+			}, [])[0];
+			return startPrice;
+		},
+	},
 };
 </script>
 

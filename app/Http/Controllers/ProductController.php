@@ -17,7 +17,7 @@ class ProductController extends Controller
     {
 		// return Product::limit(10)->paginate(10);
 		return Inertia::render('Products/Index', [
-			'products' => Product::limit(10)->paginate(10)
+			'products' => Product::with('weightVariations')->limit(10)->paginate(10)
 		]);
     }
 
