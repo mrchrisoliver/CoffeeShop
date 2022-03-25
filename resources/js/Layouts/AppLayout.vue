@@ -203,7 +203,7 @@
 												</div>
 											</div>
 											<div v-else class="py-6">No items</div>
-											<a
+											<Link
 												href="/basket"
 												class="
 													bg-purple-500
@@ -219,7 +219,7 @@
 													text-center
 													block
 												"
-												>Checkout</a
+												>View Basket</Link
 											>
 										</div>
 									</template>

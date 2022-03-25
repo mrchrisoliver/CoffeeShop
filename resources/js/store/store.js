@@ -17,7 +17,7 @@ export const store = createStore({
 		state: state,
 		expiry: expiry,
 	}
-	if(state.basket.products.length) {
+	// if(state.basket.products.length) {
 		localStorage.setItem('store', JSON.stringify(item));
-	}
+	// }
 });

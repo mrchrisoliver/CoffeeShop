@@ -29,6 +29,14 @@ Route::get('/', function () {
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
 
+Route::get('/basket', function() {
+	// dd('hello');
+	return Inertia::render('Basket/Index');
+});
+Route::get('/checkout', function() {
+	return Inertia::render('Checkout/Index');
+});
+
 Route::post('/newsletter', [NewsletterController::class, 'store']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
